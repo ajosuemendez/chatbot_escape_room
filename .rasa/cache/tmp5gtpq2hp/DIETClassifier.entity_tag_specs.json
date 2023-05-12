@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-name",
+      "2": "I-name",
+      "3": "L-name",
+      "4": "U-name",
+      "5": "B-shirt_size",
+      "6": "I-shirt_size",
+      "7": "L-shirt_size",
+      "8": "U-shirt_size",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-name": 1,
+      "I-name": 2,
+      "L-name": 3,
+      "U-name": 4,
+      "B-shirt_size": 5,
+      "I-shirt_size": 6,
+      "L-shirt_size": 7,
+      "U-shirt_size": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

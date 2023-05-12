@@ -1,0 +1,19 @@
+<head>
+    <link rel="stylesheet" href="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.css" />
+  </head>
+  <body>
+    <div class="chat-container"></div>
+  
+    <script src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js"/></script>
+    <script type="text/javascript">
+      var chatroom = new window.Chatroom({
+        host: "http://localhost:5005",
+        title: "Chat Me!",
+        container: document.querySelector(".chat-container"),
+        welcomeMessage: "Welcome to our new game where you embark on an exciting adventure but there's a twist! You've forgotten your own name! Throughout your journey, you'll face challenges and puzzles that will test your skills and wit, but in the end, you'll need to remember your name to complete your quest. So, are you ready to take on this challenge and help us uncover the mystery of your true identity?  Let's get started, but first, can you please tell me how you'd like to be called?",
+        speechRecognition: "en-US",
+        voiceLang: "en-US"
+      });
+      chatroom.openChat();
+    </script>
+  </body>
