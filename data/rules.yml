@@ -16,3 +16,8 @@ rules:
   steps:
   - intent: start
   - action: action_session_started
+
+- rule: tell current room
+  steps:
+  - intent: get_current_room
+  - action: action_get_current_room

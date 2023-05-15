@@ -1,6 +1,6 @@
 from typing import Any, Text, Dict, List
 
-from rasa_sdk.events import SlotSet, UserUtteranceReverted
+from rasa_sdk.events import SlotSet, FollowupAction
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
@@ -41,7 +41,7 @@ class ActionSayName(Action):
             if self.name_set:
                 dispatcher.utter_message(text=f"Hi {name}!")
             else:
-                dispatcher.utter_message(text=f"{name} is a beautful name:) Nice choice!")
+                dispatcher.utter_message(text=f"{name} good luck...")
                 self.name_set = True
 
         return []
@@ -51,5 +51,117 @@ class ActionSessionStarted(Action):
         return "action_session_started"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Welcome to our new game where you embark on an exciting adventure but there's a twist! You've forgotten your own name! Throughout your journey, you'll face challenges and puzzles that will test your skills and wit, but in the end, you'll need to remember your name to complete your quest. So, are you ready to take on this challenge and help us uncover the mystery of your true identity?  Let's get started, but first, can you please tell me how you'd like to be called?")
+        dispatcher.utter_message(text="Subject 69, please say your name out loud as you type it in...")
         return []
+
+class ActionRiddleCheck(Action):
+
+    def __init__(self):
+        self.possible_corret_answers = ["first of january", "1st january", "01.01", "1 january", "january 1"]
+        self.already_solved = False
+
+    def name(self) -> Text:
+        return "action_say_is_date_riddle_correct"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        answer_date = tracker.get_slot("answer_date")
+        if not answer_date:
+            dispatcher.utter_message(text="Repeat your answer please.")
+            return []
+
+        else:
+            if self.already_solved:
+                dispatcher.utter_message(text=f"The corresponding door is already unlocked.")
+                return []
+            for answer in self.possible_corret_answers: 
+                if answer_date.lower() == answer:
+                    dispatcher.utter_message(text=f"The door was unlocked! You entered to the new room.")
+                    self.already_solved = True
+
+                    puzzles_solved_num = tracker.get_slot("number_puzzle_solved")
+                    if puzzles_solved_num is None:
+                        puzzles_solved_num = 1
+                    else:
+                        puzzles_solved_num += 1
+
+                    return [SlotSet("current_room", "Lobby"), SlotSet("number_puzzle_solved", puzzles_solved_num)]
+
+            dispatcher.utter_message(text=f"The door is still locked...Try again")
+            return []
+
+class SetLobbyRoomAction(Action):
+
+    def name(self) -> Text:
+        return "action_set_lobby_room"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        return[SlotSet("current_room", "Lobby")]
+
+
+class SetHosnaRoomAction(Action):
+
+    def name(self) -> Text:
+        return "action_set_hosna_room"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        return[SlotSet("current_room", "hosna_room")]
+
+class IncreaseSolvedPuzzlesAction(Action):
+
+    def name(self) -> Text:
+        return "action_increase_solved_puzzles"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        puzzles_solved_num = tracker.get_slot("number_puzzle_solved")
+        if puzzles_solved_num is None:
+            puzzles_solved_num = 1
+        else:
+            puzzles_solved_num += 1
+
+        return[SlotSet("number_puzzle_solved", puzzles_solved_num)]
+
+class GetCurrentRoomAction(Action):
+
+    def name(self) -> Text:
+        return "action_get_current_room"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        current_room = tracker.get_slot("current_room")
+        # print(current_room)
+        if not current_room:
+            dispatcher.utter_message(text="You are in the starting room")
+        else:
+            dispatcher.utter_message(text=f"You are in the {current_room}!")
+        return []
+
+class GetNumberPuzzlesSolvedAction(Action):
+
+    def name(self) -> Text:
+        return "action_get_number_puzzle_solved"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        number_puzzle_solved = tracker.get_slot("number_puzzle_solved")
+        if not number_puzzle_solved:
+            dispatcher.utter_message(text=f"No puzzles solved.")
+        else:
+            dispatcher.utter_message(text=f"You have solved {number_puzzle_solved} puzzles!")
+        return []
+        

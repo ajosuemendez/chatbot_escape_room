@@ -232,3 +232,76 @@ nlu:
     - What is your favorite type of cuisine?
     - Tell me about a time when you accomplished something you were proud of.
     - What is the highest mountain in the world?
+
+- intent: solve_riddle_date
+  examples: |
+    - The answer is [January](answer_date)
+    - [January first](answer_date)
+    - [January 1st](answer_date)
+    - [first of january](answer_date)
+    - [01.01](answer_date)
+    - The answer is [February](answer_date)
+    - [February first](answer_date)
+    - [February 1st](answer_date)
+    - [first of February](answer_date)
+    - [01.02](answer_date)
+    - The answer is [March](answer_date)
+    - [March first](answer_date)
+    - [March 1st](answer_date)
+    - [first of March](answer_date)
+    - [01.03](answer_date)
+    - The answer is [April](answer_date)
+    - [April first](answer_date)
+    - [April 1st](answer_date)
+    - [first of April](answer_date)
+    - [01.04](answer_date)
+    - The answer is [May](answer_date)
+    - [May first](answer_date)
+    - [May 1st](answer_date)
+    - [first of May](answer_date)
+    - [01.05](answer_date)
+    - The answer is [June](answer_date)
+    - [June first](answer_date)
+    - [June 1st](answer_date)
+    - [first of June](answer_date)
+    - The answer is [July](answer_date)
+    - [July first](answer_date)
+    - [July 1st](answer_date)
+    - [first of July](answer_date)
+    - The answer is [August](answer_date)
+    - [August first](answer_date)
+    - [August 1st](answer_date)
+    - [first of August](answer_date)
+    - The answer is [September](answer_date)
+    - [September first](answer_date)
+    - [September 1st](answer_date)
+    - [first of September](answer_date)
+    - The answer is [October](answer_date)
+    - [October first](answer_date)
+    - [October 1st](answer_date)
+    - [first of October](answer_date)
+    - The answer is [November](answer_date)
+    - [November first](answer_date)
+    - [November 1st](answer_date)
+    - [first of November](answer_date)
+    - The answer is [December](answer_date)
+    - [December first](answer_date)
+    - [December 1st](answer_date)
+    - [first of December](answer_date)
+
+- intent: get_current_room
+  examples: |
+    - where am I?
+    - which room am I?
+    - what room is this?
+    - tell me this room
+    - what is the name of this room?
+    - In which room am i?
+
+- intent: get_number_puzzle_solved
+  examples: |
+    - How many puzzles have I solved?
+    - puzzles solved?
+    - solved puzzles?
+    - tell me how many riddles I've solved
+    - How many puzzles do I have?

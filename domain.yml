@@ -14,10 +14,16 @@ intents:
 - bot_challenge
 - start
 - user_give_name
+- solve_riddle_date
+- get_current_room
+- get_number_puzzle_solved
 
 entities:
 - shirt_size
 - name
+- answer_date
+- current_room
+- number_puzzle_solved
 
 slots:
   shirt_size:
@@ -33,6 +39,27 @@ slots:
     mappings:
     - type: from_entity
       entity: name
+
+  answer_date:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: answer_date
+
+  current_room:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: current_room
+
+  number_puzzle_solved:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: number_puzzle_solved
 
 
 responses:
@@ -54,6 +81,12 @@ responses:
   utter_random_thing:
   - text: "I am not understanding....Please ask again!"
 
+  utter_describe_room:
+  - text: "Suddenly the lights went out. All you see is a door with phosphorescent neon lights in front of you that says 'I was only 25 years old the day before yesterday and next year I'll be 28. When is my birthday?'."
+
+  utter_say_date_riddle:
+  - text: "As you approach you find the door lock with some inscriptions: 'Can you guess me?'...."
+
 actions:
 - utter_ask_shirt_size
 - utter_goodbye
@@ -63,3 +96,11 @@ actions:
 - action_session_started
 - action_say_name
 - action_say_shirt_size
+- utter_describe_room
+- utter_say_date_riddle
+- action_say_is_date_riddle_correct
+- action_set_lobby_room
+- action_set_hosna_room
+- action_get_current_room
+- action_get_number_puzzle_solved
+- action_increase_solved_puzzles
