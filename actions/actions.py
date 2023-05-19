@@ -90,7 +90,7 @@ class ActionRiddleCheck(Action):
                     return [SlotSet("current_room", "Lobby"), SlotSet("number_puzzle_solved", puzzles_solved_num)]
 
             dispatcher.utter_message(text=f"The door is still locked...Try again")
-            return []
+            return [FollowupAction("action_subtract_life")]
 
 class SetLobbyRoomAction(Action):
 
@@ -165,3 +165,24 @@ class GetNumberPuzzlesSolvedAction(Action):
             dispatcher.utter_message(text=f"You have solved {number_puzzle_solved} puzzles!")
         return []
         
+class SubtractLife(Action):
+
+    def __init__(self):
+        self.total_lives = 10
+        self.current_lives = 10
+
+    def name(self) -> Text:
+        return "action_subtract_life"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        self.current_lives -= 1
+        if self.current_lives < 1:
+            dispatcher.utter_message(text=f"GAME OVER.")
+            return []
+        
+        dispatcher.utter_message(text=f"You have lost a life! You have {self.current_lives} lives  from {self.total_lives} lives left.")
+        
+        return []

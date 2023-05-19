@@ -104,3 +104,4 @@ actions:
 - action_get_current_room
 - action_get_number_puzzle_solved
 - action_increase_solved_puzzles
+- action_subtract_life
