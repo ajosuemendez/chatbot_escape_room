@@ -1,0 +1,11 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJwtjEEKwCAMBL/iA6S0V78iIlJCCbSxmNSL+Pem2ttmZ7K+dWvaXaDGtAtmcqbNECld4Mx/nMgCpC6fWVilSf22rEHbh6FoCSQoCMr9x4M1SPombgjxwApjtvfwAqhTLLA=": "action_say_name",
+    "eJytjcEJgDAMRVfpACJ67SqllCJBApqKiQUp3d1oHcCDt+S/l3xXamfKtkMOcRJMZE1pQ6C4gjXvsiALkLq8JGGVGnVjP3hND4ZdQyBBQVDubu47g6RnYh8hzJjheVu/lXI8m/5brb8Apm9YbQ==": "action_listen",
+    "eJy9T90KQiEMfhUfQKJufZWDiOSIgc1w60SI797SggNd1FV3277fLa1b0y4V1hCPgoWcaXMIFM/gzGvJyAKkXM5FWEkTXQ67vdfrlaHqEUhQEBRfnri3Bkll4gYhnHCFYdt/C+V4n/T/xn78Golv6pOivLOt+VZko9n04ZK1S8WUMgysd/8A1mWOAg==": "action_say_is_date_riddle_correct",
+    "eJy9UEEKAjEM/EofsIhe+5VSSmmDBGorTVyRsn83ti4seFAve0syM5lJTFsm1a4VZucDY8latVG47C+g1btJSAxZuJQKk5AGak6Ho5XpjaDKEDIjIwhuXridFGaRse4Ed8YZ+trlN1Pyj0Hf1/bjVp/pLnui59V7Ut+CbDSbPFSSZKkYY4KO/fEJpK5Y1aHUCoH3immfzmDLsQ==": "action_listen",
+    "eJzNUEkKwzAM/IofEEp7zVeCMW4sgsCxg6WkNMF/r+o0EOihy6H0JmlmNCM1S67UMiSYjG0ZY6jVshYm2B5q9Wg8EkMQLvnIJKQVbU6Ho5bpSJBkCIGREQRv7riuFAaRcV0IpsMJytr8ninZ60r/re3TrTbQRfY4y5t3pV4F2Wl2eSh6yZLQOQ8F++ATSEWxqduYErT8VzG//9zm3AGbMPZnEQ3jPIt9yeJy1jdksPsa": "action_get_number_puzzle_solved",
+    "eJzNkFEKgzAQRK+SA0hpf72KSEjNIgsxkexqqeLd3cYKQim1hZb+JZmZnZctxilTYxuh16ZiDD5X43LQ3jSQq/vFITF48ZILTGJa1OJ0OJby2hFEeQTPyAiiFze9zBR6iXGeDLrGHtLYaV8pmeti/23tw1+Np4vMsYbX7ky9AtlkNjwUnLBEtNZB0t7YBFJKrOkqxAgV/xXm55tbm2tg7bvmLKG2GwapTyx2J8DT+FeQyhmDojIg": "action_listen"
+  }
+}

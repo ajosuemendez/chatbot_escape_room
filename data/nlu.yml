@@ -305,3 +305,19 @@ nlu:
     - solved puzzles?
     - tell me how many riddles I've solved
     - How many puzzles do I have?
+
+- intent: solve_world_cup_riddle
+  examples: |
+    - [Brazil](answer_world_cup)
+    - [Argentina](answer_world_cup)
+    - [Peru](answer_world_cup)
+    - [Germany](answer_world_cup)
+    - [France](answer_world_cup)
+    - [Italy](answer_world_cup)
+    - [Poland](answer_world_cup)
+    - [Netherlands](answer_world_cup)
+    - [Spain](answer_world_cup)
+    - [USA](answer_world_cup)
+    - The country is [Mexico](answer_world_cup)
+    - The one country with the most world cups is [India](answer_world_cup)
+    - The country is [Portugal](answer_world_cup)

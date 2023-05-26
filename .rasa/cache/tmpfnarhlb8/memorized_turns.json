@@ -1,0 +1,11 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJwtjEEKwCAMBL/iA6S0V78iIlJCCbSxmNSL+Pem2ttmZ7K+dWvaXaDGtAtmcqbNECld4Mx/nMgCpC6fWVilSf22rEHbh6FoCSQoCMr9x4M1SPombgjxwApjtvfwAqhTLLA=": "action_say_name",
+    "eJytjcEJgDAMRVfpACJ67SqllCJBApqKiQUp3d1oHcCDt+S/l3xXamfKtkMOcRJMZE1pQ6C4gjXvsiALkLq8JGGVGnVjP3hND4ZdQyBBQVDubu47g6RnYh8hzJjheVu/lXI8m/5brb8Apm9YbQ==": "action_listen",
+    "eJxNzE0KAyEMhuGr5ABDabdeRURk/BYBG4vJTBfi3Zv+LLrLx/uQONdG8zFw5rIbdwk0v0eWckeg32isBnGrrZu+kegTI9dijuLtck0eD8XwBjE2hrP4x9JGLP7EAmlvJ/LgWhs+ba30AgBUM7g=": "action_say_is_date_riddle_correct",
+    "eJy1jkEKAjEMRa+SAwyi216llFLaLAI1lSSOSJm7G0cFl27c5fPeDz/ObYF5EVxzqUaDA8zXkbmcMcA7dFJDdlf7MH1KrDeU3Iq5FE+HY3J4VRRnyEZG6Fr80tICxP7EAujoK2ah1jrubPtthZZ7Jt0bn3YdIljtj8vSA7ezbdk=": "action_listen",
+    "eJxNzEEKwzAMBMCv+AGhNFd/xRhhYh0EqhwsJTkY/z0q7SG3XXbYNOYSxt7xhLIZNYlh/AJI+WAM/8KkhuJWuZl+keiFHWoxR2l9vbOPh2L3DcXICJ2lB8tLIPETi0EbnwhX61xhO3boVCvjnPkGCwk16Q==": "action_say_is_world_cup_riddle_correct",
+    "eJy1zjEKwzAMBdCr+AChtKuvEowwtgaBKwdJSSgmd69KOhS6dOkm8Z/En8cxhbEIbpCLUecYxjkA5zvG8F4aqSG71dZNX4h1R4GazdF8u1yTh6uieIZsZITO5g+WpkDsTywG7W1D2Lu0CmVdQKjWhsdvVTQ/gPTrGkoXwWL/7piesQJ0bA==": "action_listen"
+  }
+}

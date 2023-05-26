@@ -4,28 +4,16 @@ from rasa_sdk.events import SlotSet, FollowupAction
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-
-class ActionSayShirtSize(Action):
-
+class ActionSessionStarted(Action):
     def name(self) -> Text:
-        return "action_say_shirt_size"
+        return "action_session_started"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        shirt_size = tracker.get_slot("shirt_size")
-        if not shirt_size:
-            dispatcher.utter_message(text="I don't know your shirt size.")
-        else:
-            dispatcher.utter_message(text=f"Your shirt size is {shirt_size}!")
-        return []
-
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(text="Subject 69, please say your name out loud as you type it in...")
+        #We initialize the total amount of lives for the player, in this case 10
+        return[SlotSet("lives", 10)]
 
 class ActionSayName(Action):
-
-    def __init__(self):
-        self.name_set = False
 
     def name(self) -> Text:
         return "action_say_name"
@@ -37,27 +25,19 @@ class ActionSayName(Action):
         name = tracker.get_slot("name")
         if not name:
             dispatcher.utter_message(text="I don't know your name.")
+            return[]
         else:
-            if self.name_set:
-                dispatcher.utter_message(text=f"Hi {name}!")
-            else:
-                dispatcher.utter_message(text=f"{name} good luck...")
-                self.name_set = True
+            dispatcher.utter_message(text=f"Hi {name}...")
+            dispatcher.utter_message(text="Suddenly the lights went out. All you see is a door with phosphorescent neon lights in front of you that says 'I was only 25 years old the day before yesterday and next year I'll be 28. When is my birthday?'.")
+            dispatcher.utter_message(text="As you approach you find the door lock with some inscriptions: 'Can you guess me?'....")
 
-        return []
+        return [SlotSet("name", name)]
 
-class ActionSessionStarted(Action):
-    def name(self) -> Text:
-        return "action_session_started"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Subject 69, please say your name out loud as you type it in...")
-        return []
 
 class ActionRiddleCheck(Action):
 
     def __init__(self):
-        self.possible_corret_answers = ["first of january", "1st january", "01.01", "1 january", "january 1"]
+        self.possible_corret_answers = ["first of january", "1st january", "01.01", "1 january", "january 1", "january first"]
         self.already_solved = False
 
     def name(self) -> Text:
@@ -78,7 +58,8 @@ class ActionRiddleCheck(Action):
                 return []
             for answer in self.possible_corret_answers: 
                 if answer_date.lower() == answer:
-                    dispatcher.utter_message(text=f"The door was unlocked! You entered to the new room.")
+                    dispatcher.utter_message(text=f"You tried to open the door but appereantly is still locked.")
+                    dispatcher.utter_message(text=f"You see another lock with more inscriptions: What is the Nation with the most Football World Cups?")
                     self.already_solved = True
 
                     puzzles_solved_num = tracker.get_slot("number_puzzle_solved")
@@ -87,50 +68,24 @@ class ActionRiddleCheck(Action):
                     else:
                         puzzles_solved_num += 1
 
-                    return [SlotSet("current_room", "Lobby"), SlotSet("number_puzzle_solved", puzzles_solved_num)]
+                    #We have to update we entered to a new room and that we have solved a puzzle
+                    return [SlotSet("number_puzzle_solved", puzzles_solved_num)]
+                    # return [SlotSet("current_room", "Lobby"), SlotSet("number_puzzle_solved", puzzles_solved_num)]
+
 
             dispatcher.utter_message(text=f"The door is still locked...Try again")
-            return [FollowupAction("action_subtract_life")]
 
-class SetLobbyRoomAction(Action):
+            current_lives = tracker.get_slot("lives")
+            if current_lives < 1:
+                dispatcher.utter_message(text=f"GAME OVER.")
+                return []
 
-    def name(self) -> Text:
-        return "action_set_lobby_room"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        return[SlotSet("current_room", "Lobby")]
+            dispatcher.utter_message(text=f"You have lost a life! You have {current_lives-1} lives left.")
 
 
-class SetHosnaRoomAction(Action):
+            return [SlotSet("lives", current_lives-1)]
 
-    def name(self) -> Text:
-        return "action_set_hosna_room"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        return[SlotSet("current_room", "hosna_room")]
-
-class IncreaseSolvedPuzzlesAction(Action):
-
-    def name(self) -> Text:
-        return "action_increase_solved_puzzles"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        puzzles_solved_num = tracker.get_slot("number_puzzle_solved")
-        if puzzles_solved_num is None:
-            puzzles_solved_num = 1
-        else:
-            puzzles_solved_num += 1
-
-        return[SlotSet("number_puzzle_solved", puzzles_solved_num)]
 
 class GetCurrentRoomAction(Action):
 
@@ -164,25 +119,58 @@ class GetNumberPuzzlesSolvedAction(Action):
         else:
             dispatcher.utter_message(text=f"You have solved {number_puzzle_solved} puzzles!")
         return []
-        
-class SubtractLife(Action):
 
-    def __init__(self):
-        self.total_lives = 10
-        self.current_lives = 10
 
+class DefaultFallbackAction(Action):
     def name(self) -> Text:
-        return "action_subtract_life"
+        return "action_default_fallback"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        self.current_lives -= 1
-        if self.current_lives < 1:
-            dispatcher.utter_message(text=f"GAME OVER.")
-            return []
-        
-        dispatcher.utter_message(text=f"You have lost a life! You have {self.current_lives} lives  from {self.total_lives} lives left.")
-        
+        # Custom fallback response message
+        fallback_message = "I'm sorry, I didn't understand. Can you please rephrase your message?"
+
+        # Send the fallback message
+        dispatcher.utter_message(text=fallback_message)
+
+        return []
+
+
+class WorldCupRiddleCheck(Action):
+    def name(self) -> Text:
+        return "action_say_is_world_cup_riddle_correct"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        world_cup_answer = tracker.get_slot("answer_world_cup")
+
+        if world_cup_answer:
+            if world_cup_answer.lower() == "brazil":
+                dispatcher.utter_message(text=f"Correct!")
+
+                puzzles_solved_num = tracker.get_slot("number_puzzle_solved")
+                if puzzles_solved_num is None:
+                    puzzles_solved_num = 1
+                else:
+                    puzzles_solved_num += 1
+                return [SlotSet("number_puzzle_solved", puzzles_solved_num)]
+
+            else:
+                dispatcher.utter_message(text=f"Wrong! Try again looser")
+                current_lives = tracker.get_slot("lives")
+                if current_lives < 1:
+                    dispatcher.utter_message(text=f"GAME OVER.")
+                    return []
+                
+                dispatcher.utter_message(text=f"You have lost a life! You have {current_lives-1} lives left.")
+
+
+                return [SlotSet("lives", current_lives-1)]
+
+        dispatcher.utter_message(text=f"I do not understand")
+
         return []

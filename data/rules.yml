@@ -2,11 +2,6 @@ version: "2.0"
 
 rules:
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
-
 - rule: Say 'I dont understand' anytime the user out of context
   steps:
   - intent: random_data
@@ -21,3 +16,8 @@ rules:
   steps:
   - intent: get_current_room
   - action: action_get_current_room
+
+- rule: tell number of puzzle solved
+  steps:
+  - intent: get_number_puzzle_solved
+  - action: action_get_number_puzzle_solved

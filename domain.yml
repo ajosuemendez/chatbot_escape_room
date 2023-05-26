@@ -4,35 +4,23 @@ session_config:
   carry_over_slots_to_new_session: true
 
 intents:
-- repeat_shirt_size
-- ask_me_anything
-- give_shirt_size
-- random_data
-- goodbye
-- greet
-- repeat_name
-- bot_challenge
 - start
+- random_data
 - user_give_name
 - solve_riddle_date
+- solve_world_cup_riddle
 - get_current_room
 - get_number_puzzle_solved
 
 entities:
-- shirt_size
 - name
 - answer_date
+- answer_world_cup
 - current_room
 - number_puzzle_solved
+- lives
 
 slots:
-  shirt_size:
-    type: text
-    influence_conversation: true
-    mappings:
-    - type: from_entity
-      entity: shirt_size
-
   name:
     type: text
     influence_conversation: true
@@ -46,6 +34,13 @@ slots:
     mappings:
     - type: from_entity
       entity: answer_date
+
+  answer_world_cup:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: answer_world_cup
 
   current_room:
     type: text
@@ -61,47 +56,24 @@ slots:
     - type: from_entity
       entity: number_puzzle_solved
 
+  lives:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: lives
+
 
 responses:
-  utter_greet:
-  - text: Hey! How are you?
-
-  utter_goodbye:
-  - text: Bye
-
-  utter_iamabot:
-  - text: I am a bot, powered by Rasa.
-
-  utter_ask_shirt_size:
-  - text: What is your shirt size?
-
-  utter_remember:
-  - text: Thanks. I'll remember that.
-
   utter_random_thing:
   - text: "I am not understanding....Please ask again!"
 
-  utter_describe_room:
-  - text: "Suddenly the lights went out. All you see is a door with phosphorescent neon lights in front of you that says 'I was only 25 years old the day before yesterday and next year I'll be 28. When is my birthday?'."
-
-  utter_say_date_riddle:
-  - text: "As you approach you find the door lock with some inscriptions: 'Can you guess me?'...."
-
 actions:
-- utter_ask_shirt_size
-- utter_goodbye
-- utter_greet
-- utter_remember
 - utter_random_thing
 - action_session_started
 - action_say_name
-- action_say_shirt_size
-- utter_describe_room
-- utter_say_date_riddle
 - action_say_is_date_riddle_correct
-- action_set_lobby_room
-- action_set_hosna_room
+- action_say_is_world_cup_riddle_correct
 - action_get_current_room
 - action_get_number_puzzle_solved
-- action_increase_solved_puzzles
-- action_subtract_life
+- action_default_fallback
