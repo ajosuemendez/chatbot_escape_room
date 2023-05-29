@@ -29,3 +29,12 @@ stories:
       - slot_was_set:
       - answer_world_cup: brazil
   - action: action_say_is_world_cup_riddle_correct
+
+- story: Solve third riddle
+  steps:
+  - intent: solve_wet_riddle
+    entities:
+      - answer_wet: towel
+      - slot_was_set:
+      - answer_wet: towel
+  - action: action_say_is_wet_riddle_correct

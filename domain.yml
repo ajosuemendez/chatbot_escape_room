@@ -11,6 +11,8 @@ intents:
 - solve_world_cup_riddle
 - get_current_room
 - get_number_puzzle_solved
+- solve_wet_riddle
+- get_current_puzzle_prompt
 
 entities:
 - name
@@ -19,6 +21,8 @@ entities:
 - current_room
 - number_puzzle_solved
 - lives
+- current_puzzle_to_solve
+- answer_wet
 
 slots:
   name:
@@ -62,6 +66,21 @@ slots:
     mappings:
     - type: from_entity
       entity: lives
+  
+  current_puzzle_to_solve:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: current_puzzle_to_solve
+
+  answer_wet:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: answer_wet
+
 
 
 responses:
@@ -74,6 +93,8 @@ actions:
 - action_say_name
 - action_say_is_date_riddle_correct
 - action_say_is_world_cup_riddle_correct
+- action_say_is_wet_riddle_correct
 - action_get_current_room
 - action_get_number_puzzle_solved
 - action_default_fallback
+- action_get_current_puzzle_prompt

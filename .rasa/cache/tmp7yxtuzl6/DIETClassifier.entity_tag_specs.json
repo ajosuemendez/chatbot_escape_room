@@ -1,0 +1,44 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-answer_date",
+      "2": "I-answer_date",
+      "3": "L-answer_date",
+      "4": "U-answer_date",
+      "5": "B-answer_wet",
+      "6": "I-answer_wet",
+      "7": "L-answer_wet",
+      "8": "U-answer_wet",
+      "9": "B-answer_world_cup",
+      "10": "I-answer_world_cup",
+      "11": "L-answer_world_cup",
+      "12": "U-answer_world_cup",
+      "13": "B-name",
+      "14": "I-name",
+      "15": "L-name",
+      "16": "U-name",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-answer_date": 1,
+      "I-answer_date": 2,
+      "L-answer_date": 3,
+      "U-answer_date": 4,
+      "B-answer_wet": 5,
+      "I-answer_wet": 6,
+      "L-answer_wet": 7,
+      "U-answer_wet": 8,
+      "B-answer_world_cup": 9,
+      "I-answer_world_cup": 10,
+      "L-answer_world_cup": 11,
+      "U-answer_world_cup": 12,
+      "B-name": 13,
+      "I-name": 14,
+      "L-name": 15,
+      "U-name": 16,
+      "O": 0
+    },
+    "num_tags": 17
+  }
+]

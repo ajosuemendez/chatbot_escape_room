@@ -21,3 +21,8 @@ rules:
   steps:
   - intent: get_number_puzzle_solved
   - action: action_get_number_puzzle_solved
+
+- rule: tell current solve prompt
+  steps:
+  - intent: get_current_puzzle_prompt
+  - action: action_get_current_puzzle_prompt

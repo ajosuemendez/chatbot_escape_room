@@ -1,21 +1,5 @@
 version: "3.0"
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
-    - hi there
 
 - intent: user_give_name
   examples: |
@@ -137,37 +121,6 @@ nlu:
     - my name is [Hudson](name)
 
 
-- intent: repeat_name
-  examples: |
-    - What is my name?
-    - How do people call me?
-    - my name is?
-    - and name?
-    - do you know my name?
-    - what was my name?
-    - give me my name
-
-- intent: goodbye
-  examples: |
-    - good afternoon
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-    - thanks, bye
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
 
 - intent: start
   examples: |
@@ -176,44 +129,6 @@ nlu:
     - beginn
     - talk
 
-- intent: ask_me_anything
-  examples: |
-    - ask me anything
-    - would you like to ask me something
-    - feel free to ask me about things
-    - want to ask me something?
-
-- intent: repeat_shirt_size
-  examples: |
-    - what is my shirt size
-    - tell me my shirt size
-    - do you know my shirt size
-    - repeat my shirt size
-
-- intent: give_shirt_size
-  examples: |
-    - i want a [large](shirt_size) shirt
-    - [medium](shirt_size) size
-    - give me a [small](shirt_size) tshirt
-    - [small](shirt_size)
-    - [medium](shirt_size)
-    - [large](shirt_size)
-    - i'd prefer [medium](shirt_size) size
-    - gimme gimme gimme [small](shirt_size) tshirt
-    - give shirt size
-    - i want a [large](shirt_size) shirt please
-    - i want to give you my shirt
-    - [large](shirt_size)
-    - i want a [s](shirt_size) shirt please
-    - i want to give you my shirt
-    - [xs](shirt_size)
-    - [m](shirt_size)
-    - [l](shirt_size)
-    - [xl](shirt_size)
-    - give me a [m](shirt_size) tshirt
-    - give me a [l](shirt_size) tshirt
-    - give me a [xs](shirt_size) tshirt
-    - give me a [s](shirt_size) tshirt
 
 - intent: random_data
   examples: |
@@ -306,6 +221,26 @@ nlu:
     - tell me how many riddles I've solved
     - How many puzzles do I have?
 
+- intent: get_current_puzzle_prompt
+  examples: |
+    - Which puzzle am I?
+    - what is the puzzle?
+    - what should I solve?
+    - What needs to be solved?
+    - give me the current puzzle?
+    - what should I do?
+    - what was the question?
+    - what is the current puzzle?
+    - give me the puzzle
+    - tell me the riddle
+    - tell me question
+    - give me information about the riddle
+    - can you repeat the riddle?
+    - could you repeat the puzzle?
+    - could you tell me the question again?
+    - give me the question one more time.
+
+
 - intent: solve_world_cup_riddle
   examples: |
     - [Brazil](answer_world_cup)
@@ -321,3 +256,25 @@ nlu:
     - The country is [Mexico](answer_world_cup)
     - The one country with the most world cups is [India](answer_world_cup)
     - The country is [Portugal](answer_world_cup)
+
+- intent: solve_wet_riddle
+  examples: |
+    - [clothes](answer_wet)
+    - [towels](answer_wet)
+    - [shoes](answer_wet)
+    - [raincoats](answer_wet)
+    - [umbrellas](answer_wet)
+    - [plants](answer_wet)
+    - [bottles](answer_wet)
+    - [swimwears](answer_wet)
+    - [swimsuits](answer_wet)
+    - [dresses(answer_wet)
+    - [Balls](answer_wet)
+    - a [towel](answer_wet)
+    - a [raincoat](answer_wet)
+    - an [umbrella](answer_wet)
+    - a [plant](answer_wet)
+    - a [bottle](answer_wet)
+    - a [swimwear](answer_wet)
+    - a [swimsuit](answer_wet)
+    - a [dress(answer_wet)
