@@ -17,9 +17,12 @@ class ActionSessionStarted(Action):
         return "action_session_started"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        dispatcher.utter_message(text="Subject 69, please say your name out loud as you type it in...")
-        #We initialize the total amount of lives for the player, in this case 10
-        return[SlotSet("lives", 10)]
+        if tracker.get_slot("current_puzzle_to_solve") is None:
+            dispatcher.utter_message(text="Subject 69, please say your name out loud as you type it in...")
+            #We initialize the total amount of lives for the player, in this case 10
+            return[SlotSet("lives", 10)]
+        dispatcher.utter_message(text="Sorry I do not understand. Can you rephrase it?")
+        return[]
 
 class ActionSayName(Action):
 
@@ -88,13 +91,14 @@ class ActionRiddleCheck(Action):
                     return [SlotSet("number_puzzle_solved", puzzles_solved_num), SlotSet("current_puzzle_to_solve", "worldcup_puzzle")]
 
 
-            dispatcher.utter_message(text=f"The door is still locked...Try again")
+            
 
             current_lives = tracker.get_slot("lives")
-            if current_lives < 1:
+            if current_lives < 2:
                 dispatcher.utter_message(text=f"GAME OVER.")
                 return []
 
+            dispatcher.utter_message(text=f"The door is still locked...Try again")
             dispatcher.utter_message(text=f"You have lost a life! You have {current_lives-1} lives left.")
 
 
@@ -202,12 +206,13 @@ class WorldCupRiddleCheck(Action):
                 return [SlotSet("number_puzzle_solved", puzzles_solved_num), SlotSet("current_puzzle_to_solve", "wet_puzzle")]
 
             else:
-                dispatcher.utter_message(text=f"Wrong! Try again looser")
+                
                 current_lives = tracker.get_slot("lives")
-                if current_lives < 1:
+                if current_lives < 2:
                     dispatcher.utter_message(text=f"GAME OVER.")
                     return []
-                
+
+                dispatcher.utter_message(text=f"Wrong! Try again looser")
                 dispatcher.utter_message(text=f"You have lost a life! You have {current_lives-1} lives left.")
 
 
@@ -249,18 +254,18 @@ class WetRiddleCheck(Action):
                 
                 if puzzles_solved_num == 3:
                     dispatcher.utter_message(text=f"The third lock has fallen off. You try again to open the door and it opens without much effort.")
-                    dispatcher.utter_message(text=f"Now you enter the new room but you can't see anything. The only thing you can recognize is the whistling of a bird.")
+                    dispatcher.utter_message(text=f"Congrats! You made your way out!")
                     return [SlotSet("number_puzzle_solved", puzzles_solved_num), SlotSet("current_room", "Lobby"), SlotSet("current_puzzle_to_solve", "fourth_puzzle")]
 
                 return [SlotSet("number_puzzle_solved", puzzles_solved_num), SlotSet("current_puzzle_to_solve", "fourth_puzzle")]
 
             else:
-                dispatcher.utter_message(text=f"Wrong! Try again looser")
+                
                 current_lives = tracker.get_slot("lives")
-                if current_lives < 1:
+                if current_lives < 2:
                     dispatcher.utter_message(text=f"GAME OVER.")
                     return []
-                
+                dispatcher.utter_message(text=f"Wrong! Try again looser")
                 dispatcher.utter_message(text=f"You have lost a life! You have {current_lives-1} lives left.")
 
 
