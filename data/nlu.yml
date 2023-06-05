@@ -122,12 +122,12 @@ nlu:
 
 
 
-- intent: start
-  examples: |
-    - start
-    - initialize
-    - beginn
-    - talk
+# - intent: start
+#   examples: |
+#     - start
+#     - initialize
+#     - beginn
+#     - talk
 
 
 - intent: random_data

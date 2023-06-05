@@ -4,7 +4,7 @@ session_config:
   carry_over_slots_to_new_session: true
 
 intents:
-- start
+# - start
 - random_data
 - user_give_name
 - solve_riddle_date
@@ -89,7 +89,7 @@ responses:
 
 actions:
 - utter_random_thing
-- action_session_started
+# - action_session_started
 - action_say_name
 - action_say_is_date_riddle_correct
 - action_say_is_world_cup_riddle_correct

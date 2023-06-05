@@ -7,10 +7,10 @@ rules:
   - intent: random_data
   - action: utter_random_thing
 
-- rule: Initialize chat
-  steps:
-  - intent: start
-  - action: action_session_started
+# - rule: Initialize chat
+#   steps:
+#   - intent: start
+#   - action: action_session_started
 
 - rule: tell current room
   steps:

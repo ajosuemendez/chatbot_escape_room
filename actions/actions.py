@@ -12,17 +12,17 @@ puzzle_prompts = {
     "fourth_puzzle": "There are no riddles to be solved",
 }
 
-class ActionSessionStarted(Action):
-    def name(self) -> Text:
-        return "action_session_started"
+# class ActionSessionStarted(Action):
+#     def name(self) -> Text:
+#         return "action_session_started"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        if tracker.get_slot("current_puzzle_to_solve") is None:
-            dispatcher.utter_message(text="Subject 69, please say your name out loud as you type it in...")
-            #We initialize the total amount of lives for the player, in this case 10
-            return[SlotSet("lives", 10)]
-        dispatcher.utter_message(text="Sorry I do not understand. Can you rephrase it?")
-        return[]
+#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         if tracker.get_slot("current_puzzle_to_solve") is None:
+#             dispatcher.utter_message(text="Subject 69, please say your name out loud as you type it in...")
+#             #We initialize the total amount of lives for the player, in this case 10
+#             return[SlotSet("lives", 10)]
+#         dispatcher.utter_message(text="Sorry I do not understand. Can you rephrase it?")
+#         return[]
 
 class ActionSayName(Action):
 
@@ -42,7 +42,7 @@ class ActionSayName(Action):
                 dispatcher.utter_message(text=f"Hi {name}...")
                 dispatcher.utter_message(text="Suddenly the lights went out. All you see is a door with phosphorescent neon lights in front of you that says 'I was only 25 years old the day before yesterday and next year I'll be 28. What is the only date this can happen?'.")
                 dispatcher.utter_message(text="As you approach you find the door lock with some inscriptions: 'Can you guess me?'....")
-                return [SlotSet("name", name), SlotSet("current_puzzle_to_solve", "date_puzzle")]
+                return [SlotSet("name", name), SlotSet("current_puzzle_to_solve", "date_puzzle"), SlotSet("lives", 10)]
             else:
                 dispatcher.utter_message(text=f"Sorry I don't understand. Can you rephrase it?")
                 return []
