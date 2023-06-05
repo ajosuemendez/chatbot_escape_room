@@ -1,0 +1,7 @@
+{
+    "name": "Nightmares",
+    "id": "Nightmares",
+    "background-image": "under-the-sea-background-image.jpg",
+    "api-url": "http://localhost:5005",
+    "welcome-message": "Subject 69, please say your name out loud as you type it in..."
+}
