@@ -23,6 +23,10 @@ entities:
 - lives
 - current_puzzle_to_solve
 - answer_wet
+- date_riddle_attempts
+- worldcup_riddle_attempts
+- wet_riddle_attempts
+- unexpected_intents
 
 slots:
   name:
@@ -80,6 +84,34 @@ slots:
     mappings:
     - type: from_entity
       entity: answer_wet
+
+  date_riddle_attempts:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: date_riddle_attempts
+
+  worldcup_riddle_attempts:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: worldcup_riddle_attempts
+
+  wet_riddle_attempts:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: wet_riddle_attempts
+
+  unexpected_intents:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: unexpected_intents
 
 
 
