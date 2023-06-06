@@ -1,0 +1,11 @@
+{
+    "escape_room_name": "Your Personal Nightmare",
+    "chatbot_name": "Unknown",
+    "messagebox_caption": "Message",
+    "send_button_caption": "Send",
+    "user_name": "You",
+    "id": "your_personal_nightmare",
+    "background-image": "Futurama.jpg",
+    "api_url": "http://localhost:5005",
+    "welcome-message": "Subject 69, please say your name out loud as you type it in..."
+}
