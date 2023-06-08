@@ -1,0 +1,13 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJwtjEEKwCAMBL/iA6S0V78iIlJCCbSxmNSL+Pem2ttmZ7K+dWvaXaDGtAtmcqbNECld4Mx/nMgCpC6fWVilSf22rEHbh6FoCSQoCMr9x4M1SPombgjxwApjtvfwAqhTLLA=": "action_say_name",
+    "eJytjcEJgDAMRVfpACJ67SqllCJBApqKiQUp3d1oHcCDt+S/l3xXamfKtkMOcRJMZE1pQ6C4gjXvsiALkLq8JGGVGnVjP3hND4ZdQyBBQVDubu47g6RnYh8hzJjheVu/lXI8m/5brb8Apm9YbQ==": "action_listen",
+    "eJxdzEEKwzAMBMCv6AGhtFd/xRgRYh0EqhwkJTkY/70uLRR622WHzX0s0HejE9ctuGmC/gmo65MSfIuwB+m0Li38jdQvMryaScXt2BPkx+1epjicbALS4GCaNv/bsgDrvIsE3uSk34LGtQqNUV5htDpL": "action_say_is_world_cup_riddle_correct",
+    "eJy9zkEKAjEMBdCr5ACD6LZXGUoobRaBmg5JZgYpc3crCoJuXLlLyPvhz/2YoC9KG6bs3CRAfw4o6UoBXktlc5JhrTa3BxLbSXFvWgvmdQkwX07nOMRqpAOQODvTsPOnjROwjHcewFrd6H1B5VIqHb+VsnRDtq805qZK2f/XNt4Bymx9MA==": "action_listen",
+    "eJxNzE0KAyEMhuGr5ABDabdeRURk/BYBG4vJTBfi3Zv+LLrLx/uQONdG8zFw5rIbdwk0v0eWckeg32isBnGrrZu+kegTI9dijuLtck0eD8XwBjE2hrP4x9JGLP7EAmlvJ/LgWhs+ba30AgBUM7g=": "action_say_is_date_riddle_correct",
+    "eJy1jkEKAjEMRa+SAwyi216llFLaLAI1lSSOSJm7G0cFl27c5fPeDz/ObYF5EVxzqUaDA8zXkbmcMcA7dFJDdlf7MH1KrDeU3Iq5FE+HY3J4VRRnyEZG6Fr80tICxP7EAujoK2ah1jrubPtthZZ7Jt0bn3YdIljtj8vSA7ezbdk=": "action_listen",
+    "eJxFzEEKwzAMBMCv6AGhtFd/xRgTmj0IHDlYanIw/nsUGshNuzso9jFR3xr2PH+NqwTq/yPLvCLQHQqrQdxqqaYXEj3Q8gELFD+vd/Ltp2g+QYyN4So+Kk3E4i+cay07ri43XpaCMdIJbl0yzg==": "action_say_is_wet_riddle_correct",
+    "eJy1jkEKwzAMBL/iB4TSXv0VY4RxdBC4cpHUhGLy9yq00Bx7yU2rnV02jW0K4yG4QKlGnWMYnwO43DGGr2ikhuystm66Q6wrCqxoMaTb5ZrdeyqKW8hGRuhU+lF5CsRe4bj2tuD+A6F5brj9N0HLC0gPOahdBKudtSq/Afb9a7c=": "action_listen"
+  }
+}

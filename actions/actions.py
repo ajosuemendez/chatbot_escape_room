@@ -12,6 +12,13 @@ puzzle_prompts = {
     "fourth_puzzle": "There are no riddles to be solved",
 }
 
+puzzle_hints = {
+    "date_puzzle" : ["It is a date between December and January", "It is closer to the end of the year", "First of...."],
+    "worldcup_puzzle": ["It is the largest country in South America", "They speak portuguese in this country", "Bra..."],
+    "wet_puzzle": ["You can find this item in your bathroom", "You use it (hopefully) everyday when you take a shower", "To..."],
+    "fourth_puzzle": ["There are no hints since there are no puzzles to be solved"],
+}
+
 class ActionSessionStarted(Action):
     def name(self) -> Text:
         return "action_session_started"
@@ -274,3 +281,56 @@ class WetRiddleCheck(Action):
         dispatcher.utter_message(text=f"I do not understand")
 
         return []
+
+class GetHints(Action):
+    def name(self) -> Text:
+        return "action_get_hints"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        if tracker.get_slot("current_puzzle_to_solve") is None:
+            dispatcher.utter_message(text="There are no puzzles yet! Please enter your name first!")
+            return[]
+
+        current_puzzle = tracker.get_slot("current_puzzle_to_solve")
+        
+
+        if current_puzzle == "date_puzzle":
+            current_hint_attempt = tracker.get_slot("date_puzzle_hint_count")
+            if current_hint_attempt is None:
+                current_hint_attempt = 0
+
+            if current_hint_attempt > 2:
+                current_hint_attempt = 2
+
+            dispatcher.utter_message(text=f"{puzzle_hints[current_puzzle][current_hint_attempt]}")
+            return[SlotSet("date_puzzle_hint_count", current_hint_attempt + 1)]
+
+        elif current_puzzle == "worldcup_puzzle":
+            current_hint_attempt = tracker.get_slot("worldcup_puzzle_hint_count")
+            if current_hint_attempt is None:
+                current_hint_attempt = 0
+
+            if current_hint_attempt > 2:
+                current_hint_attempt = 2
+
+            dispatcher.utter_message(text=f"{puzzle_hints[current_puzzle][current_hint_attempt]}")
+            return[SlotSet("worldcup_puzzle_hint_count", current_hint_attempt + 1)]
+
+        elif current_puzzle == "wet_puzzle":
+            current_hint_attempt = tracker.get_slot("wet_puzzle_hint_count")
+            if current_hint_attempt is None:
+                current_hint_attempt = 0
+                
+            if current_hint_attempt > 2:
+                current_hint_attempt = 2
+
+            dispatcher.utter_message(text=f"{puzzle_hints[current_puzzle][current_hint_attempt]}")
+            return[SlotSet("wet_puzzle_hint_count", current_hint_attempt + 1)]
+
+        elif current_puzzle == "fourth_puzzle":
+            current_hint_attempt = 0
+
+            dispatcher.utter_message(text=f"{puzzle_hints[current_puzzle][current_hint_attempt]}")
+            return[]
+
+        

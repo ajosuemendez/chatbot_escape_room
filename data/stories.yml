@@ -38,3 +38,8 @@ stories:
       - slot_was_set:
       - answer_wet: towel
   - action: action_say_is_wet_riddle_correct
+
+- story: tell current hint
+  steps:
+  - intent: get_hint
+  - action: action_get_hints

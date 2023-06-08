@@ -278,3 +278,12 @@ nlu:
     - a [swimwear](answer_wet)
     - a [swimsuit](answer_wet)
     - a [dress(answer_wet)
+
+- intent: get_hint
+  examples: |
+    - help me
+    - help
+    - give me a hint
+    - could you help me?
+    - can you give me a hand?
+    - I need help

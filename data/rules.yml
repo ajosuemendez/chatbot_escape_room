@@ -26,3 +26,4 @@ rules:
   steps:
   - intent: get_current_puzzle_prompt
   - action: action_get_current_puzzle_prompt
+

@@ -13,6 +13,7 @@ intents:
 - get_number_puzzle_solved
 - solve_wet_riddle
 - get_current_puzzle_prompt
+- get_hint
 
 entities:
 - name
@@ -23,6 +24,9 @@ entities:
 - lives
 - current_puzzle_to_solve
 - answer_wet
+- date_puzzle_hint_count
+- worldcup_puzzle_hint_count
+- wet_puzzle_hint_count
 
 slots:
   name:
@@ -81,6 +85,26 @@ slots:
     - type: from_entity
       entity: answer_wet
 
+  date_puzzle_hint_count:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: date_puzzle_hint_count
+  
+  worldcup_puzzle_hint_count:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: worldcup_puzzle_hint_count
+
+  wet_puzzle_hint_count:
+    type: float
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: wet_puzzle_hint_count
 
 
 responses:
@@ -98,3 +122,4 @@ actions:
 - action_get_number_puzzle_solved
 - action_default_fallback
 - action_get_current_puzzle_prompt
+- action_get_hints
